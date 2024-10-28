@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Seller Signup Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #F2F0EF;
+            background-size: cover;
+        }
+
+        h1 {
+            text-align: center;
+            color: #351E10;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 32px;
+        }
+
+        form {
+            max-width: 800px;
+            padding: 40px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px #351E10;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #351E10;
+            font-size: 18px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="file"],
+        select {
+            font-size: 18px;
+            padding: 15px;
+            width: 100%;
+            max-width: 700px;
+            margin-bottom: 25px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .book-container {
+            margin-bottom: 25px;
+        }
+
+        .add-book-btn {
+            padding: 10px 20px;
+            background-color: #eb8b4e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 25px;
+        }
+
+        .submit-btn-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: #eb8b4e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #351E10;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: -15px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                padding: 10px;
+            }
+
+            input[type="submit"] {
+                margin: 20px auto;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Book Seller Registration</h1>
+
+    <form action="/workerinfo" method="post" enctype="multipart/form-data" onsubmit="return handleSubmit()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your full name" pattern="[A-Za-z\s]+" title="Only alphabets and spaces are allowed." oninput="validateName()">
+        <div id="nameError" class="error-message"></div>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required placeholder="Enter your 10-digit phone number" maxlength="10" oninput="validatePhone()">
+        <div id="phoneError" class="error-message"></div>
+        <div id="bookFields">
+            <div class="book-container">
+                <label for="book_title_1">Book Title:</label>
+                <input type="text" id="book_title_1" name="book_title[]" required placeholder="Enter the book title">
+                <label for="book_image_1">Book Image:</label>
+                <input type="file" id="book_image_1" name="book_image[]" accept="image/*" required multiple>
+                <label for="book_author_1">Author:</label>
+                <input type="text" id="book_author_1" name="book_author[]" required placeholder="Enter the book author">
+                <label for="book_price_1">Price:</label>
+                <input type="text" id="book_price_1" name="book_price[]" required placeholder="Enter the price">
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="">--Select Book Category--</option>
+                    <option value="Programming Books">Programming Book</option>
+                    <option value="Electrical books">Electrical books</option>
+                    <option value="Common to All">Common to All</option>
+                </select>
+            </div>
+        </div>
+        <button type="button" class="add-book-btn" onclick="addBookField()">Add More Books</button>
+        <label for="condition">Condition of the Books:</label>
+        <select id="condition" name="condition" required>
+            <option value="">--Select Book Condition--</option>
+            <option value="new">New</option>
+            <option value="like_new">Like New</option>
+            <option value="used_good">Used - Good</option>
+            <option value="used_fair">Used - Fair</option>
+        </select>
+        <div class="submit-btn-container">
+            <button class="submit-btn" onclick="handleSubmit()">Register</button>
+        </div>
+    </form>
+    <script>
+        let bookCount = 1;
+        function addBookField() {
+            bookCount++;
+            const bookFields = document.getElementById('bookFields');
+            const newBookContainer = document.createElement('div');
+            newBookContainer.className = 'book-container';
+            newBookContainer.innerHTML = `
+                <label for="book_title_${bookCount}">Book Title:</label>
+                <input type="text" id="book_title_${bookCount}" name="book_title[]" required placeholder="Enter the book title">
+                <label for="book_image_${bookCount}">Book Image:</label>
+                <input type="file" id="book_image_${bookCount}" name="book_image[]" accept="image/*" required multiple>
+                <label for="book_author_${bookCount}">Author:</label>
+                <input type="text" id="book_author_${bookCount}" name="book_author[]" required placeholder="Enter the book author">
+                <label for="book_price_${bookCount}">Price:</label>
+                <input type="text" id="book_price_${bookCount}" name="book_price[]" required placeholder="Enter the price">
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="">--Select Book Category--</option>
+                    <option value="Programming Books">Programming Book</option>
+                    <option value="Electrical books">Electrical books</option>
+                    <option value="Common to All">Common to All</option>
+                </select>
+            `;
+            bookFields.appendChild(newBookContainer);
+        }
+    
+        function validateName() {
+            const nameInput = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            const isValid = /^[A-Za-z\s]+$/.test(nameInput.value);
+            nameError.textContent = isValid ? '' : 'Invalid name. Only letters and spaces are allowed.';
+        }
+    
+        function validatePhone() {
+            const phoneInput = document.getElementById('phone');
+            const phoneError = document.getElementById('phoneError');
+            const isValid = /^\d{10}$/.test(phoneInput.value);
+            phoneError.textContent = isValid ? '' : 'Invalid phone number. Must be 10 digits.';
+        }
+    
+        function handleSubmit() {
+            return true; // Proceed with submission
+        }
+    </script>
+    
+</body>
+</html>    

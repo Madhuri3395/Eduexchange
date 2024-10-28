@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tell Us About Yourself</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #F2F0EF;
+        }
+
+        h1 {
+            text-align: center;
+            color: #351E10;
+            font-size: 28px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #351E10;
+            font-size: 16px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-color: #351E10;
+            box-shadow: 0 0 8px #351E10;
+            outline: none;
+        }
+
+        form {
+            max-width: 800px;
+            padding: 40px 60px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px #351E10;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #351E10;
+            font-size: 16px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="file"],
+        select {
+            font-size: 18px;
+            padding: 12px;
+            width: 100%;
+            max-width: 700px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        input[type="file"]:focus,
+        select:focus {
+            border-color: #351E10;
+            outline: none;
+        }
+
+        .checkbox-group {
+            color: #351E10;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group label {
+            margin-bottom: 10px;
+            display: block;
+            align-items: center;
+        }
+
+        ::-webkit-input-placeholder {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color:#351E10;
+        }
+
+        input[type="submit"] {
+            font-size: 18px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 8px 16px;
+            margin: 20px auto;
+            display: block;
+            background-color: #eb8b4e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: auto;
+            min-width: 150px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #351E10;
+        }
+
+        .terms {
+            font-size: 12px;
+            color: #351E10;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .terms a {
+            color:#351E10;
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            form {
+                padding: 30px;
+                width: 90%;
+            }
+
+            input[type="text"],
+            input[type="tel"],
+            input[type="number"],
+            input[type="file"],
+            select {
+                padding: 10px;
+            }
+
+            input[type="submit"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tell us a little about yourself!!</h1>
+   
+    <form action="/userinfo" method="post" onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name" pattern="[A-Za-z\s]+" title="Only alphabets and spaces are allowed." oninput="validateName('name', 'nameError')">
+        <div id="nameError" class="error-message"></div>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required placeholder="Enter your 10-digit phone number" maxlength="10" oninput="validatePhone()">
+        <div id="phoneError" class="error-message"></div>
+
+        <h3>Which branch are you interested in?</h3>
+        <div class="checkbox-group" id="checkboxGroup">
+            <label>
+                <input type="checkbox" name="branchOptions" value="ComputerScience" onclick="checkOnlyOne(this)"> Computer Science
+            </label>
+            <label>
+                <input type="checkbox" name="branchOptions" value="AIML" onclick="checkOnlyOne(this)"> AI & Machine Learning
+            </label>
+            <label>
+                <input type="checkbox" name="branchOptions" value="DataScience" onclick="checkOnlyOne(this)"> Data Science
+            </label>
+            <label>
+                <input type="checkbox" name="branchOptions" value="Cybersecurity" onclick="checkOnlyOne(this)"> Cybersecurity
+            </label>
+            <label>
+                <input type="checkbox" name="branchOptions" value="EEE" onclick="checkOnlyOne(this)"> Electrical and Electronics Engineering (EEE)
+            </label>
+            <label>
+                <input type="checkbox" name="branchOptions" value="ECE" onclick="checkOnlyOne(this)"> Electronics and Communication Engineering (ECE)
+            </label>
+            <label>
+                <input type="checkbox" name="branchOptions" value="EIE" onclick="checkOnlyOne(this)"> Electronics and Instrumentation Engineering (EIE)
+            </label>
+        </div>
+        <div id="checkboxError" class="error-message"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validateName(nameId, errorId)
+        {
+            const nameInput = document.getElementById(nameId);
+            const nameError = document.getElementById(errorId);
+            const invalidChars = /[^A-Za-z\s]/;
+
+            if (invalidChars.test(nameInput.value)) {
+                nameInput.value = nameInput.value.replace(invalidChars, '');
+                nameError.textContent = 'Only alphabets and spaces are allowed.';
+            } else {
+                nameError.textContent = '';
+            }
+        }
+
+        function checkOnlyOne(checkbox) {
+            const checkboxes = document.getElementsByName('branchOptions');
+            checkboxes.forEach((item) => {
+                if (item !== checkbox) item.checked = false;
+            });
+        }
+
+        function validateCheckbox()
+        {
+            const checkboxes = document.querySelectorAll('input[name="branchOptions"]:checked');
+            const checkboxError = document.getElementById('checkboxError');
+
+            if (checkboxes.length === 0) {
+                checkboxError.textContent = 'Please select at least one branch.';
+                return false;
+            } else {
+                checkboxError.textContent = '';
+                return true;
+            }
+        }
+
+        function validatePhone() {
+            const phoneInput = document.getElementById('phone');
+            const phoneError = document.getElementById('phoneError');
+            const isValid = /^\d{10}$/.test(phoneInput.value);
+            phoneError.textContent = isValid ? '' : 'Invalid phone number. Must be 10 digits.';
+        }
+
+        function validateForm() {
+            const isNameValid = validateName('name', 'nameError');
+            const isCheckboxValid = validateCheckbox();
+            return isNameValid && isCheckboxValid;
+        }
+    </script>
+</body>
+</html>

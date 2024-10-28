@@ -1,0 +1,157 @@
+<style>
+    .footer {
+          background-color: #ffffff;
+          color: #351E10;
+          padding: 40px 0;
+          border-top: 1px solid #ddd;
+        }
+        
+        .footer .container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        
+        .footer .row {
+          display: flex;
+          flex-direction: row; /* Ensure elements are side-by-side */
+          flex-wrap: nowrap; /* No wrapping, columns will stay side-by-side */
+          justify-content: space-between; /* Even spacing between the columns */
+          align-items: flex-start; /* Align columns at the top */
+        }
+        
+        .footer .col-md-4, .footer .col-md-3 {
+          flex-basis: 30%; /* Set each column to take approximately 30% of the container width */
+          padding: 0 15px; /* Add padding for spacing */
+          min-width: 250px; /* Minimum width to prevent shrinking too much */
+        }
+        
+        .footer h4 {
+          font-size: 18px;
+          margin-bottom: 15px;
+        }
+        
+        .footer ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+        
+        .footer ul li {
+          margin-bottom: 10px;
+        }
+        
+        .footer a {
+          color: #351E10;
+          text-decoration: none;
+        }
+        
+        .footer a:hover {
+          color: #f39c12;
+        }
+        
+        .social-media {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          gap: 10px; /* Reduced gap between icons */
+        }
+        
+        .social-media li {
+          margin-right: 10px; /* Adjusted margin between icons */
+        }
+        
+        .social-media img {
+          transition: opacity 0.3s;
+        }
+        
+        .social-media img:hover {
+          opacity: 0.7;
+        }
+        
+        
+        .copyright {
+          text-align: center;
+          padding: 15px 0;
+          background-color: #351E10;
+          color: #ffffff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 14px;
+          border-top: 2px solid #351E10;
+        }
+        
+        @media (max-width: 768px) {
+          .footer .row {
+            flex-direction: column; /* Stack the columns vertically on small screens */
+            align-items: center;
+          }
+        
+          .footer .col-md-4, .footer .col-md-3 {
+            flex-basis: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+          }
+        
+          .social-media {
+            justify-content: center;
+          }
+        }
+        
+</style>
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 about">
+          <h4>About Us</h4>
+          <p>We're the leading reselling books site...</p>
+        </div>
+        <div class="col-md-3">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="#">Programming Books</a></li>
+            <li><a href="#">Electrical books</a></li>
+            <li><a href="#">Common to All</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 follow-us">
+          <h4>Follow Us</h4>
+          <ul class="social-media">
+            <li>
+              <a href="#" target="_blank">
+                <img src="instagram.png" alt="Instagram" width="30" height="30">
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank">
+                <img src="twitter.png" alt="Twitter" width="30" height="30">
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank">
+                <img src="facebook.png" alt="Facebook" width="30" height="30">
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank">
+                <img src="linkedin.png" alt="LinkedIn" width="30" height="30">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <footer class="copyright">
+    <p>&copy; 2024 Eduexchange. All Rights Reserved.</p>
+  </footer>

@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Change to match sign-in pages */
+    margin: 0;
+    padding: 20px;
+    /*
+    background: url('WhatsApp Image 2024-09-28 at 19.11.00_416ba86c.jpg') no-repeat center center fixed; */
+    background-size: cover; 
+}
+
+h1 {
+    text-align: center;
+    color: #010101; 
+    font-weight: bold;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 32px; /* Adjust to match sign-in pages */
+}
+
+form {
+    max-width: 800px; 
+    padding: 40px; 
+    margin: 0 auto; 
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adjusted box shadow */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #010101;
+    font-size: 18px; /* Match font size with sign-in pages */
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="file"],
+select,
+textarea {
+    font-size: 18px; /* Match font size */
+    padding: 15px;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    background-color: #f0f0f0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.upload-btn, .submit-btn {
+    margin-top: 10px; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    background-color: #007bff; 
+    color: white; 
+    cursor: pointer; 
+    font-size: 16px; /* Match button font size */
+}
+
+.placeholder-icon {
+    width: 60%; 
+    height: 60%; 
+    opacity: 0.5; 
+}
+
+.image-name {
+    margin-top: 10px; 
+    font-size: 16px; 
+    color: red; 
+    display: none; 
+}
+
+.error-message {
+    color: red; 
+    font-size: 14px; 
+    margin-top: -15px; 
+    margin-bottom: 20px; 
+}
+
+.submit-btn-container {
+    display: flex;
+    justify-content: center; 
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #0927eb; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3; 
+}
+
+#workers_count {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    form {
+        padding: 10px;
+    }
+
+    input[type="submit"] {
+        margin: 20px auto;
+        padding: 12px;
+    }
+}
+
+textarea {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 18px; 
+    padding: 15px;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

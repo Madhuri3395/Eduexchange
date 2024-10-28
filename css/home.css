@@ -1,0 +1,174 @@
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+   
+}
+
+header .logo img {
+    max-width: 100px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    font-weight:lighter;
+    color: #000;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
+.auth-buttons {
+    margin-left: auto;
+}
+
+.auth-buttons .login-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+.auth-buttons .login-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Hero section */
+.hero {
+    background-image: url('hp.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    filter: brightness(200%); /* Increase brightness by 50% */
+
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    
+}
+
+.hero-content {
+    z-index: 2;
+    
+   
+}
+
+.hero h1 {
+    font-size: 60px;
+  
+    font-family: sans-serif;
+    font-optical-sizing: auto;
+    
+    font-style: normal;
+}
+
+.search-bar {
+    background-color: white;
+    
+    border-radius: 25px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.search-bar label {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #070606;
+}
+
+.search-bar input {
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    width: 250px;
+    font-size: 16px;
+}
+
+.search-bar input::placeholder {
+    color: #ccc;
+}
+.popup {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.674);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    width: 50%;
+    height: 50%;
+    align-content:center;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position:unset;
+    text-align: center;
+}
+.popup-logo {
+    width: 200px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 50px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.popup-content button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0927eb;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background-color: #0a1881;
+}

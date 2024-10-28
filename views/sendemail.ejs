@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated font family */
+            background-color: #F2F0EF; /* Light gray background */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            color: #351E10;
+            margin-top: 30px;
+            font-size: 28px; /* Consistent heading font size */
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 35px 55px;
+            background-color: #fff;
+            border-radius: 15px; /* Increased border radius */
+            box-shadow: 0 5px 30px #351E10; /* Updated box shadow */
+        }
+
+        label {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px; /* Consistent label font size */
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #351E10;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 100%;
+            padding: 12px; /* Increased padding for larger input fields */
+            margin-bottom: 15px;
+            border: 2px solid #ddd;  /* Thicker border for emphasis */
+            border-radius: 5px; /* Updated border radius */
+            box-sizing: border-box;
+            font-size: 16px; /* Consistent font size */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+        }
+        ::-webkit-input-placeholder {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #351E10;
+          }
+
+        /* Input field border color change on focus */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus {
+            border-color: #351E10;  /* Accent color for focus */
+            box-shadow: 0 0 8px #351E10;  /* Subtle shadow effect */
+            outline: none;  /* Removes default outline */
+        }
+
+        textarea {
+            resize: vertical; /* Allow vertical resizing */
+        }
+
+        input[type="submit"] {
+            font-size: 18px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Reduced button text size */
+            padding: 8px 16px; /* Reduced padding for a smaller button */
+            margin: 20px auto; /* Space around and center the button */
+            display: block; /* Block element to make centering possible */
+            background-color: #eb8b4e; /* Button background color */
+            color: white; /* White text */
+            border: none; /* Remove default borders */
+            border-radius: 5px; /* Slightly rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: auto; /* Make the button adjust to its content */
+            min-width: 150px; /* Set a minimum width */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #351E10; /* Darker shade on hover */
+        }
+
+        .error-message {
+            color: red;
+            font-size: 13px; /* Consistent error message font size */
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+                width: 90%;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            textarea {
+                padding: 10px; /* Smaller padding for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Send Email</h1>
+   
+    <div class="container">
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="70d04333-bd4e-4450-b2c3-3dd85ab0ab25">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name" pattern="[A-Za-z\s]+" title="Only alphabets and spaces are allowed." oninput="validateName()">
+            <div id="nameError" class="error-message"></div> <!-- Error message container -->
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required oninput="validateEmail()">
+            <span id="emailError" class="error-message"></span>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required placeholder="Enter your 10-digit phone number" maxlength="10" oninput="validatePhone()">
+            <div id="phoneError" class="error-message"></div>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" placeholder="Enter the work description you need workers for..." required></textarea>
+
+            <input type="submit" value="Send">
+        </form>
+    </div>
+
+    <script>
+        function validateName() {
+            const nameInput = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            const invalidChars = /[^A-Za-z\s]/; // Regular expression for invalid characters
+
+            if (invalidChars.test(nameInput.value)) {
+                nameInput.value = nameInput.value.replace(invalidChars, '');
+                nameError.textContent = 'Only alphabets and spaces are allowed.';
+            } else {
+                nameError.textContent = '';
+            }
+        }
+
+        function validatePhone() {
+            const phoneInput = document.getElementById('phone');
+            const phoneError = document.getElementById('phoneError');
+            const invalidChars = /[^0-9]/; // Regular expression to check for non-numeric characters
+
+            if (invalidChars.test(phoneInput.value)) {
+                phoneInput.value = phoneInput.value.replace(invalidChars, '');
+            }
+
+            if (phoneInput.value.length !== 10) {
+                phoneError.textContent = 'Phone number must be exactly 10 digits.';
+            } else {
+                phoneError.textContent = ''; // Clear the error if valid
+            }
+        }
+
+        function validateEmail() {
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const requiredDomain = '@gmail.com';
+        
+            // Check if email contains the required domain
+            if (!emailInput.value.endsWith(requiredDomain)) {
+                emailError.textContent = 'Email must be a valid Gmail address (e.g., name@gmail.com).';
+            } else {
+                emailError.textContent = ''; // Clear the error if valid
+            }
+        }
+    </script>
+</body>
+</html>

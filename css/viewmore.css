@@ -1,0 +1,260 @@
+body {
+    font-family: Arial, sans-serif;
+
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    color: #0927eb;
+}
+.logo img {
+    height: 80px;
+}
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+.nav button {
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #0927eb;
+    font-size: 20px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+.nav button:hover {
+    background-color: #f6f4f8;
+    border: 2px solid transparent;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #fafafa;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+}
+.dropdown a {
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown a:hover {
+    background-color: #6d7ff3;
+}
+.nav button:hover .dropdown {
+    display: block;
+}
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile img {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+}
+.profile span {
+    font-size: 15px;
+}
+.rajuprofile {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+}
+.rajuprofile img {
+    height: 150px;
+    border-radius: 50%;
+}
+.rajuprofile-details {
+    margin-left: 20px;
+}
+.rajuprofile-details h1 {
+    margin: 10px 0;
+    color: #6a0dad;
+}
+
+
+.rating {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 10px;
+}
+
+.average-rating {
+font-size: 18px;
+font-weight: bold;
+color: #000;
+}
+
+.star-display {
+display: flex;
+}
+
+.star {
+color: #f5b301;
+font-size: 20px;
+position: relative;
+top: 2px;
+}
+
+.half-star {
+color: #f5b301;
+font-size: 20px;
+position: relative;
+top: 2px;
+clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+.rating-count {
+font-size: 16px;
+color: #666;
+}
+
+.rating label {
+    cursor: pointer;
+}
+.rating input[type="radio"] {
+    display: none;
+}
+.rating input[type="radio"] + label::before {
+    content: "☆";
+    font-size: 20px;
+    color: #000000;
+}
+.rating input[type="radio"]:checked + label::before,
+.rating label:hover::before {
+    content: "★";
+    color: #f5b301;
+}
+.rating label:hover ~ label::before {
+    content: "☆";
+    color: #ccc;
+}
+.occupation, .description {
+margin-bottom: 30px;
+color: #000; /* Add text color as black */
+}
+.review-section textarea {
+    width: 100%;
+    height: 100px;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+.review-box {
+border: 1px solid #ddd;
+padding: 10px;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.review-box textarea {
+width: 90%;
+height: 100px;
+padding: 10px;
+border: none;
+border-radius: 5px 5px 0 0;
+}
+
+.review-box button {
+width: 10%;
+padding: 10px;
+border: none;
+border-radius: 0 0 5px 5px;
+background-color: #0927eb;
+color: white;
+cursor: pointer;
+
+}
+
+.review-box button:hover {
+background-color: #0a3deb;
+}
+#about {
+padding: 20px;
+}
+#about h2 {
+margin-bottom: 1px;
+
+}
+#about p {
+margin-bottom: 2px;
+margin-top: 4px;
+text-align: justify;
+color: #000; /* Text color */
+}
+#projects p {
+color: #000;
+text-align: center;
+}
+.project-gallery {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+justify-content: center;
+}
+
+.project {
+display: flex;
+flex-direction: column;
+align-items: center;
+border: 1px solid #ddd;
+border-radius: 10px;
+padding: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+width: 30%;
+}
+
+.project img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+border-radius: 10px 10px 0 0;
+}
+
+.project-address {
+font-size: 14px;
+color: #666;
+margin-top: 5px;
+text-align: center;
+padding-bottom: 10px;
+}
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.tabs a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #000;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 5px;
+}
+.tabs a.active {
+    border-bottom: 2px solid #000;
+}
+section {
+    padding: 20px;
+    
+}

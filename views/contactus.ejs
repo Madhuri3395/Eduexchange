@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F2F0EF; /* Light background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px 55px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #351E10; /* Box shadow */
+            transition: transform 0.3s ease;
+            text-align: center; /* Centering the content inside */
+        }
+
+        .container:hover {
+            transform: translateY(-5px); /* Slight hover effect */
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 35px;
+            color: #351E10;
+            margin-bottom: 20px;
+        }
+
+        .contact-text, .contact-form {
+            text-align: left;
+            width: 100%;
+        }
+
+        .contact-text h2 {
+            font-size: 18px;
+            color: #351E10;
+            margin-bottom: 10px;
+        }
+
+        .contact-text p {
+            font-size: 16px;
+            color: #351E10;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        label {
+            font-size: 18px;
+            color: #351E10;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            font-size: 18px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Reduced button text size */
+            padding: 8px 16px; /* Reduced padding for a smaller button */
+            margin: 20px auto; /* Space around and center the button */
+            display: block; /* Block element to make centering possible */
+            background-color: #eb8b4e; /* Button background color */
+            color: white; /* White text */
+            border: none; /* Remove default borders */
+            border-radius: 5px; /* Slightly rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: auto; /* Make the button adjust to its content */
+            min-width: 150px; /* Set a minimum width */
+        }
+
+        button:hover {
+            background-color: #351E10; /* Darker shade on hover */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px; /* Reduce overall padding for smaller screens */
+            }
+        
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Heading at the top and centered -->
+        <h1>Contact Us</h1>
+        
+        <!-- Text Section -->
+        <div class="contact-text">
+            <h2>Get In Touch With Us</h2>
+            <p>Please fill out the form below with your details, and our support team will get back to you as soon as possible. Whether you have a specific inquiry or need general guidance, we're just a message away!</p>
+        </div>
+
+        <!-- Form Section -->
+        <div class="contact-form">
+            <form action="/submit-form" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

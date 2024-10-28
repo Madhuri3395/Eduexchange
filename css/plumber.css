@@ -1,0 +1,190 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('pbackground.png');
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    color: #0927eb;
+}
+.logo img {
+    height: 80px;
+}
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+.nav button {
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #0927eb;
+    font-size: 20px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+.nav button:hover {
+    background-color: #f6f4f8;
+    border: 2px solid transparent;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #fafafa;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+}
+.dropdown a {
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown a:hover {
+    background-color: #6d7ff3;
+}
+.nav button:hover .dropdown {
+    display: block;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile img {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    
+}
+
+.profile span {
+    font-size: 15px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+}
+.section-heading {
+    text-align: center;
+    color:#0927eb;
+    padding: 5px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.plumber-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    max-width: 1300px;
+}
+
+.plumber-card img {
+    height: 150px;
+    width: 120px;
+    border-radius: 50%;
+}
+
+.plumber-details {
+    flex-grow: 1;
+}
+
+.plumber-details h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    color: #0927eb;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.rating input:checked ~ label {
+    color: #ff0;
+}
+
+.rating label:hover, .rating label:hover ~ label {
+    color: #ff0;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    color: #010a0f;
+    margin-bottom: 15px;
+}
+.location img{
+    height: 20px;
+    width: 15px;
+    border-radius: 50%
+}
+
+.description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttons button {
+    background-color: #0927eb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons .view-more {
+    background-color: #ccc;
+    color: black;
+}
