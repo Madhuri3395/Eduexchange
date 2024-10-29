@@ -50,16 +50,17 @@ sroute.get('/sellerinfo',authMiddleware, async (req, res) => {
     res.render('workerinfo');
 });
 
-sroute.post('/sellerinfo', authMiddleware, upload.array('book_image[]', 12), async  (req, res) => {
-    req.body.email = req.session.email;
-    req.body.password = req.session.password;
-    const result = await storeWorkerData(req, res);
-    if (result.success) {
-        res.redirect('/home');
-    } else {
-        res.send('Sorry, try again later.');
-    }
+sroute.post('/sellerinfo', authMiddleware, upload.array('book_image[]', 12), async (req, res) => {
+  req.body.email = req.session.email;
+  req.body.password = req.session.password;
+  const result = await storeWorkerData(req, res);
+  if (result.success) {
+    res.redirect('/home');
+  } else {
+    res.send('Sorry, try again later.');
+  }
 });
+
 
 sroute.get('/seller/:id', async (req, res) => {
     try {
@@ -79,6 +80,21 @@ sroute.get('/seller/:id', async (req, res) => {
     }
   });
 
+  sroute.post('/sold', async (req, res) => {
+    try {
+      const bookId = req.body.bookId;
+      const worker = await sellermodel.findOneAndUpdate(
+        { 'books._id': bookId },
+        { $set: { 'books.$.sold': 'yes' } },
+        { new: true }
+      );
+      res.redirect('back'); // Redirect back to the previous page
+    } catch (error) {
+      console.error('Error updating book status:', error);
+      res.status(500).send('Error updating book status');
+    }
+  });
+  
 
  sroute.get('/sellers/:category', async (req, res) => {
   const category = req.params.category;

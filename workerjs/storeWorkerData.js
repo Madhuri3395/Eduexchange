@@ -4,19 +4,19 @@ const { v4: uuidv4 } = require('uuid');
 const storeWorkerData = async (req, res) => {
   try {
     const books = req.body.book_title.map((title, index) => {
-      const images = req.files.filter(file => file.fieldname === 'book_image[]');
+      const image = req.files[index]; // Assign the correct image to the corresponding book
       return {
         title: title,
         author: req.body.book_author[index],
         price: req.body.book_price[index],
-        category: req.body.category[index], // Ensure category is included here
+        category: req.body.category[index],
         condition: req.body.condition,
-        book_images: images.map(file => ({
-          filename: file.filename,
-          contentType: file.mimetype,
+        book_image: { // Store single image object
+          filename: image.filename,
+          contentType: image.mimetype,
           uploadDate: new Date(),
           metadata: {}
-        }))
+        }
       };
     });
 

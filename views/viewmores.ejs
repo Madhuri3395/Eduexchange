@@ -4,529 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eduexchange</title>
-
-   
     <style>
-       
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color:#F2F0EF;
-}
-       
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F2F0EF;
+        }
 
         .main-content {
-  padding-top: 90px; /* adjust the value to match the navbar height */
-}
-.contact-container {
-    display: flex;
-    flex-direction: row; /* Change to row to align buttons beside the image */
-    justify-content: flex-start; /* Align items to the start */
-    gap: 20px; /* Space between the buttons */
-    width: 100%;
-    top: 2px;
-}
+            padding-top: 90px; /* Adjust padding to match navbar height */
+        }
 
-.contact-btn {
-  background-color: #eb8b4e;
-    color: #351E10;
-     /* Adjust padding for height and width */
-    border: none;
-    top: 2px;          /* Adjust the distance from the top */
-    right: 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px; /* Increases the text size */
-    width: 200px; /* Reduced width */
-    height: 50px; /* Set a fixed height (if desired) */
-    align-self: flex-end; /* Align button to the right */
-    margin-bottom: 5px;
-    margin-top: 10px;
-    padding: 10px 20px;
-    border-radius: 8px;
-    color:white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Match with the select font family */
-    cursor: pointer;  /* Push the button to the top */
-
-}
-
-.contact-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-              color:white;
-                       
-            background-color: #351E10;
-}
-
-        .profile-section {
-            position: relative;
+        /* Seller Section */
+        .seller-section {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
             background-color: #fff;
             padding: 40px;
             margin: 20px 50px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .profile-section img {
+
+        .contact-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            top: 2px;
             width: 100%;
-            max-width: 1300px;
-            max-height: 400px;
-            border-radius: 10px;
-            margin-bottom: 20px;
         }
-        .profile-info {
-            text-align: left;
-        }
-        .profile-info h1 {
-            margin: 0;
-            font-size: 2em;
-            color: #351E10;
-        }
-        .profile-info .rating {
-            display: flex;
-            align-items: left;
-            justify-content: left;
-            margin: 10px 0;
-        }
-        .profile-info .rating span {
-            font-size: 20px;
-            color: #f5b301;
-            margin-right: 10px;
-           
-        }
-        .profile-info .rating p {
-            margin: 0;
-            color: #666;
-           
-        }
-        .profile-info p {
-            color: #666;
-            font-size: 1.2em;
-            margin: 10px 0;
-           
-        }
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-            border-bottom: 2px solid #ddd;
-        }
-        .nav-tabs a {
-            margin: 0 20px;
-            padding-bottom: 10px;
-            text-decoration: none;
-            color: #000;
-            font-size: 18px;
-            border-bottom: 2px solid transparent;
-        }
-        .nav-tabs a.active {
-  border-bottom: 2px solid #000;
-  font-weight: bold;
-  color: #eb8b4e; /* Active link color */
-}
 
-        #about {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 20px;
-}
-#about h2 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #351E10;
-  font-size: 26px;
-  margin-left: 28px;
-  margin-bottom: 8px;
- 
-}
-#about p {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-bottom: 2px;
-  margin-top: 4px;
-  margin-left: 28px;
-  font-size: 18px;
-  text-align: justify;
-  color: #351E10; /* Text color */
-}
-#projects {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 20px;
-}
-
-#projects h2 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #351E10;
-  font-size: 26px;
-  margin-left: 28px;
-  margin-bottom: 8px;
-}
-
-#projects p {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-bottom: 2px;
-  margin-top: 4px;
-  margin-left: 28px;
-  font-size: 18px;
-  text-align: center;
-  color: #351E10;
-}
-
-/* Container with grid layout for projects */
-.container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-  max-width: 1200px;
-  grid-gap: 80px;
-  margin: 0 auto;
-  margin-left: 170px;
-  justify-items: center;
-}
-
-.project-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-  gap: 30px;
-  justify-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.project {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
-  width: 100%;
-}
-
-.project img {
-  width: 350px; /* Image width */
-  height: 200px; /* Image height */
-  margin: 5px auto;
-  border-radius: 15px; /* Curved corners */
-  box-shadow: 0 4px 10px #351E10; /* Subtle shadow around the image */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for shadow */
-}
-
-/* Hover effect to enlarge the image slightly */
-.project-image {
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.project-image:hover {
-  transform: scale(1.15); /* Slightly enlarge image on hover */
-  box-shadow: 0 6px 15px #351E10; /* Stronger shadow on hover */
-}
-
-.project-address {
-  font-size: 14px;
-  color: #666;
-  margin-top: 20px;
-  text-align: center;
-  padding-bottom: 10px;
-}
-
-
-
-section {
-            padding: 20px;
-           
-        }
-        .review-box {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          display: flex;
-          align-items: flex-start;
-          background-color: white;
-          padding: 20px;
-          margin-bottom: 20px;
-          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-          border-radius: 8px;
-          max-width: 1400px; /* Increased width */
-          margin-left: 28px;
-          margin-right:15px; /* Added left margin */
-      }
-     
-      .review-box .left-column {
-          margin-right: 20px;
-      }
-     
-      .review-box .left-column img {
-          border-radius: 50%;
-          width: 40px; /* Decreased width */
-          height: 40px; /* Decreased height */
-          object-fit: cover;
-      }
-     
-      .review-box .right-column {
-          flex-grow: 1;
-      }
-     
-      .review-box .right-column .name {
-          font-weight: bold;
-          margin-bottom: 5px;
-          font-size: 18px;
-      }
-     
-      .review-box .right-column .rating {
-          display: flex;
-          gap: 2px;
-      }
-     
-      .review-box .right-column .rating span {
-          font-size: 24px;
-          color: #eb8b4e;
-      }
-     
-      .review-box .right-column .description {
-          margin-top: 10px;
-          color: #351E10;;
-          font-size: 16px;
-      }
-      h1 {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          text-align: left; /* Center align the heading */
-          margin-bottom: 20px; /* Space below the heading */
-          font-size: 2em; /* Increase font size */
-          color: #351E10;;
-          margin-left: 20px; /* Change text color */
-      }
-      .description{
-          color:#351E10;
-
-      }
-    </style>
-   
-</head>
-<body>
-
-    <!-- Header Section -->
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eduexchange</title>
-    <style>
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    background-color: #F2F0EF;
-    color: #351E10;
-    border-bottom: 2px solid #351E10;
-    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1); /* Adds shadow under the header */
-    z-index: 1000;
-    position: fixed;
-    width: 100%;
-    height: 9%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  .logo img {
-    height: 100px;
-  }
-  .nav {
-    display: flex;
-   
-    align-items: center;
-  }
-  .nav .nav-link {
-    text-decoration: none;
-    color: #351E10;
-    transition: color 0.3s ease;
-    display: inline-block;
-    margin: 0 40px;
-    margin-left: 50px;
-    font-size: 23px;
-    font-weight: bold;
-  }
-  .nav .nav-link:hover {
-    color: #eb8b4e;
-  }
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fafafa;
-    min-width: 160px;
-    border-radius: 5px;
-    overflow: hidden;
-    z-index: 1;
-  }
-  .dropdown-content a {
-    color: #351E10;
-    padding: 10px 20px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  .dropdown-content a:hover {
-    background-color: rgb(216, 215, 215);
-    color: #eb8b4e;
-  }
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  .profile-name {
-    display: flex;
-    align-items: center;
-    font-size: 20px;
-  }
-  .profile-pic {
-    width: 60px;
-    height: 70px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  .profile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
- 
-  .profile img {
-    height: 40px;
-    width: 40px;
-
-    border-radius: 100%;
-   
-   
-  }
-
-
-  .logout {
-           
+        .contact-btn {
             background-color: #eb8b4e;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-           margin-right: 25px;
-            text-decoration: none;
             color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            width: 200px;
+            height: 50px;
+            cursor: pointer;
+            padding: 10px 20px;
+            margin: 10px 0;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            background-color: #351E10;
+        }
+
+        /* Projects Section */
+        #projects h2 {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-           
+            color: #351E10;
+            font-size: 26px;
+            margin-left: 28px;
+            margin-bottom: 8px;
         }
-        .logout:hover{
-          background-color: #351E10;
-          color: #fff;
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
- .main-content {
-      padding-top: 100px;
-    }
-   
-    .seller-section {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      background-color: #fff;
-      padding: 40px;
-      margin: 20px 50px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
 
-    .seller-info h1 {
-      margin: 0;
-      font-size: 2em;
-      color: #351E10;
-    }
+        .project {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
 
-    .seller-info p {
-      color: #666;
-      font-size: 1.2em;
-    }
+        .project img {
+            width: 250px;
+            height: 300px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px #351E10;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
+        .project:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px #351E10;
+        }
 
-
-</style>
+        .project-address {
+            font-size: 18px;
+            color: #351E10;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
+
+ 
 <%- include('header') %>
-
-<div class="main-content">
-  <!-- Seller Information Section -->
-  <div class="seller-section">
-    <div class="seller-info">
-      <h1><%= x.name %></h1>
-      <p><strong>Phone:</strong> <%= x.phone %></p>
-    </div>
-    <!-- Container for Contact Button -->
-    <div class="contact-container">
-      <button class="contact-btn" onclick="location.href='/sendemail'">Send mail ✉</button>
-    </div>
-  </div>
-
-  <section id="projects">
-    <h2>Books</h2>
-    <div class="container">
-      <div class="books-gallery">
-        <% x.books.forEach(book => { %>
-          <div class="project">
-           <div class="book-images">
-          <% book.book_images.forEach(image => { %>
-            <img src="/uploads/<%= image.filename %>" alt="Book Image" class="project-image">
-          <% }) %>
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <!-- Seller Information Section -->
+        <div class="seller-section">
+            <div class="seller-info">
+                <h1><%= x.name %></h1>
+                <p><strong>Phone:</strong> <%= x.phone %></p>
+            </div>
+            <!-- Container for Contact Button -->
+            <div class="contact-container">
+                <button class="contact-btn" onclick="location.href='/sendemail'">Send mail ✉</button>
+            </div>
         </div>
-            <p class="project-address">Title: <%= book.title %></p>
-            <p>Author: <%= book.author %></p>
-            <p>Price: <%= book.price %> Rs</p>
-            <p>Category: <%= book.category %></p>
-            <p>Condition: <%= x.condition %></p>
-          </div>
-        <% }) %>
-      </div>
+
+        <!-- Books Section -->
+        <section id="projects">
+            <h2>Books</h2>
+            <div class="container">
+                <!-- Loop to display each book -->
+                <% x.books.forEach(book => { %>
+                    <div class="project">
+                        <!-- Display each book's image -->
+                        <img src="/uploads/<%= book.book_image.filename %>" alt="Book Image" class="project-image">
+                        <!-- Display only the book title -->
+                        <p class="project-address">Title: <%= book.title %></p>
+                        <p>Author: <%= book.author %></p>
+                        <p>Price: <%= book.price %> Rs</p>
+                        <p>Category: <%= book.category %></p>
+                        <p>Condition: <%= book.condition %></p>
+                        <% if (book.sold === 'yes') { %>
+                          <p style="color: red;">Sold Out</p>
+                        <% } %>
+                        <% if (currentUser && currentUser.uniqueId === x.uniqueId && book.sold !== 'yes') { %>
+                          <form action="/sold" method="POST" style="display: inline;">
+                            <input type="hidden" name="bookId" value="<%= book._id %>">
+                            <button type="submit" class="contact-btn">Mark as Sold</button>
+                          </form>
+                        <% } %>
+                    </div>
+                <% }) %>
+            </div>
+        </section>
     </div>
-  </section>
-</div>
-
-    <script>
-      const projectImages = document.querySelectorAll('.project-image');
-
-projectImages.forEach(image => {
-  image.addEventListener('click', () => {
-    const fullscreenImage = document.createElement('div');
-    fullscreenImage.classList.add('fullscreen-image');
-    fullscreenImage.style.backgroundImage = url('${image.src}');
-    document.body.appendChild(fullscreenImage);
-
-    fullscreenImage.addEventListener('click', () => {
-      fullscreenImage.remove();
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        fullscreenImage.remove();
-      }
-    });
-  });
-});
-
-        function scrollToSection(sectionId) {
-      // Remove active class from all links
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-      });
-     
-      // Add active class to the clicked link
-      event.target.classList.add('active');
-     
-      // Scroll to the corresponding section
-      document.getElementById(sectionId).scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-   
-    // Open modal and display the clicked image
-
-
-   
-    </script>
 
 </body>
-
 </html>
