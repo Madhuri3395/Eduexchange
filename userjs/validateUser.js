@@ -1,9 +1,9 @@
-const usermodel = require('../model/usermodel');
+const buyermodel = require('../model/usermodel');
 const bcrypt = require('bcrypt');
 
 async function validateUser(data) {
     if (data.email && data.password) {
-        const user = await usermodel.findOne({ email: data.email });
+        const user = await buyermodel.findOne({ email: data.email });
         
         if (user) {
             const isMatch = await bcrypt.compare(data.password, user.password);

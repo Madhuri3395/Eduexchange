@@ -448,9 +448,6 @@ section {
 <body>
 <%- include('header') %>
 
-
-</div>
-
 <div class="main-content">
   <!-- Seller Information Section -->
   <div class="seller-section">
@@ -508,18 +505,7 @@ projectImages.forEach(image => {
     });
   });
 });
-function toggleProfileDropdown() {
-  const profileDropdown = document.getElementById('profile-dropdown');
-  profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
-}
 
-// Optional: Hide dropdown when clicking outside
-document.addEventListener('click', (event) => {
-  const profileDropdown = document.getElementById('profile-dropdown');
-  if (!event.target.closest('.profile')) {
-    profileDropdown.style.display = 'none';
-  }
-});
         function scrollToSection(sectionId) {
       // Remove active class from all links
       document.querySelectorAll('.nav-link').forEach(link => {

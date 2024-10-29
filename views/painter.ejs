@@ -118,60 +118,7 @@ body {
         .profile span {
             font-size: 15px;
         }
-        .profile-dropdown {
-  display: none;
-  position: absolute;
-  top: 80px;
-  left: 84%;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  height: 200px;
-  width: 180px;
-}
-
-.profile-dropdown-content {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  gap: 50px;
-}
-
-.profile-dropdown-info {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.profile-dropdown-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.profile-dropdown-details {
-  text-align: left;
-  
-}
-
-
-.profile-dropdown-more {
-  text-decoration: none;
-  color: #351E10;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.profile-dropdown-more:hover {
-  color: #eb8b4e;
-}
-.profile:hover .profile-dropdown {
-  display: block;
-}
-
+       
         .main-content {
   padding-top: 90px; /* adjust the value to match the navbar height */
 }
@@ -293,44 +240,7 @@ body {
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <img src="finallogo2.jpeg" alt="Eduexchange">
-        </div>
-        <div class="nav">
-            <a href="home.html" class="nav-link">Home</a>
-            
-            <div class="dropdown">
-                <a href="#" class="nav-link">Categories</a>
-                <div class="dropdown-content">
-                    <a href="programmingbooks.html">Programming Books</a>
-                    <a href="electricalbooks.html">Electrical Books</a>
-                    <a href="commontoall.html">Common To All</a>
-                </div>
-            </div>
-            <a href="aboutus.html" class="nav-link">About Us</a>
-            <a href="contactus.html" class="nav-link">Contact Us</a>
-        </div>
-        <div class="profile">
-          <a href="logout.html" class="logout">Logout</a>
-          <div class="profile-dropdown" id="profile-dropdown">
-            <div class="profile-dropdown-content">
-              <div class="profile-dropdown-info">
-                <img src="user.jpeg" alt="K Vaishnavi Profile Pic" class="profile-dropdown-pic">
-                <div class="profile-dropdown-details">
-                  <h4>K_Vaishnavi</h4>
-                  <p>vaishnavi</p>
-                </div>
-              </div>
-              <div class="profile-dropdown-content">
-                <a href="profilepage.html" class="profile-dropdown-more">More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        
-    </div>
+   <%- include('header') %>
         
     <div class="main-content">
         <div class="section-heading">
@@ -356,7 +266,7 @@ body {
             </div>
             <div class="buttons">
                 <button class="send-message" onclick="location.href='/sendemail'">Send Message</button>
-                <button class="view-more" onclick="location.href='/worker/<%= seller.uniqueId %>'">View More</button>
+                <button class="view-more" onclick="location.href='/seller/<%= seller.uniqueId %>'">View More</button>
             </div>
         </div>
         <% }); %>
@@ -369,10 +279,7 @@ body {
     alert(`Send Message to ${plumberName}!`);
   });
 });
-function toggleProfileDropdown() {
-  const profileDropdown = document.getElementById('profile-dropdown');
-  profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
-}
+
 
 
     </script>

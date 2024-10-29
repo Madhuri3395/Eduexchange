@@ -73,18 +73,14 @@
         <form action="#" method="POST">
             <label for="name">Name:</label>
             
-            <input type="text" id="name" name="name" value="<%= worker.name %>" readonly required>
+            <input type="text" id="name" name="name" value="<%= users.name %>" readonly required>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="<%= worker.email %>" readonly required>
+            <input type="email" id="email" name="email" value="<%= users.email %>" readonly required>
 
             <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" value="<%= worker.phone %>" readonly required>
+            <input type="tel" id="phone" name="phone" value="<%= users.phone %>" readonly required>
 
-            <% if (worker.role === 'worker') { %>
-                <label for="location">Location:</label>
-                <input type="text" id="location" name="location" value="<%= worker.location %>" readonly required>
-                <% } %>
         
         </form>
     </div>

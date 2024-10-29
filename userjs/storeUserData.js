@@ -1,4 +1,4 @@
-const usermodel = require('../model/usermodel');
+const buyermodel = require('../model/usermodel');
 const { v4: uuidv4 } = require('uuid');
 async function storeUserData(req,res) {
         const data = {
@@ -14,7 +14,7 @@ async function storeUserData(req,res) {
         try {
             req.session.user=data
             
-            await usermodel.create(data);
+            await buyermodel.create(data);
             console.log(data)
             return { success: true };
         } catch (error) {
