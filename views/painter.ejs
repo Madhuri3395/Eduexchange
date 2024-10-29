@@ -335,67 +335,33 @@ body {
     <div class="main-content">
         <div class="section-heading">
           <div class="section-heading-container">
-            <h2>Programming Books</h2>
+            <h2><%= category %></h2>
           </div>
         </div>
     </div>
     <div class="content">
-            
+        <% sellers.forEach(seller => { %>
         <div class="plumber-card">
             <div class="plumber-details">
-                <h2>Book Title: <span>Learning Web Development</span></h2>
-                <div class="seller">Seller: John</div>
-                <div class="description">Author: <span>Jane Smith</span></div>
-                <div class="price">Price: 250Rs</div>
+                <h2>Seller: <%= seller.name %></h2>
+                    <% seller.books.forEach(book => { %>
+                    <% if (book.category === category) { %>
+                    <div class="book-details">
+                        <h3>Book Title: <%= book.title %></h3>
+                        <p>Author: <%= book.author %></p>
+                        <p>Price: <%= book.price %> Rs</p>
+                    </div>
+                    <% } %>
+          <% }); %>
             </div>
             <div class="buttons">
-                <button class="send-message" onclick="location.href='message.html'">Send Message</button>
-                <button class="view-more" onclick="location.href='Gopalviewmore.html'">View More</button>
+                <button class="send-message" onclick="location.href='/sendemail'">Send Message</button>
+                <button class="view-more" onclick="location.href='/worker/<%= seller.uniqueId %>'">View More</button>
             </div>
         </div>
+        <% }); %>
     </div>
-    <div class="content">
-        <div class="plumber-card">
-            <div class="plumber-details">
-               <h2>Book Title: <span>C Programming</span></h2>
-                <div class="seller">Seller: Johnny</div>
-                <div class="description">Author: <span>Dennis Ritchie</span></div>
-                <div class="price">Price: 300Rs</div>
-            </div>
-            <div class="buttons">
-                <button class="send-message" onclick="location.href='message.html'">Send Message</button>
-                <button class="view-more" onclick="location.href='hariviewmore.html'">View More</button>
-            </div>
-        </div>
-    </div>
-    <div class="content">
-        <div class="plumber-card">
-            <div class="plumber-details">
-               <h2>Book Title: <span>Java Programming</span></h2>
-                <div class="seller">Seller: Gopal</div>
-                <div class="description">Author: <span>James Gosling</span></div>
-                <div class="price">Price: 240Rs</div> 
-            </div>
-            <div class="buttons">
-                <button class="send-message" onclick="location.href='message.html'">Send Message</button>
-                <button class="view-more" onclick="location.href='dineshviewmore.html'">View More</button>
-            </div>
-        </div>
-    </div>
-    <div class="content">
-        <div class="plumber-card">
-            <div class="plumber-details">
-                <h2>Book Title: <span>C++</span></h2>
-                <div class="seller">Seller: Sheethal</div>
-                <div class="description">Author: <span>Bjarne</span></div>
-                <div class="price">Price: 310Rs</div>
-            </div>
-            <div class="buttons">
-                <button class="send-message" onclick="location.href='message.html'">Send Message</button>
-                <button class="view-more" onclick="location.href='shivaviewmore.html'">View More</button>
-            </div>
-        </div>
-    </div>
+    
     <script>
         document.querySelectorAll('.send-message').forEach(button => {
   button.addEventListener('click', () => {

@@ -10,6 +10,7 @@ let workerSchema = mongoose.Schema({
         title: String,
         author: String,
         price: Number,
+        category: String,
         book_images: [{ 
             filename: { type: String },
             contentType: { type: String },

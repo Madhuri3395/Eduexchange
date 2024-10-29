@@ -129,12 +129,12 @@
                 <input type="text" id="book_author_1" name="book_author[]" required placeholder="Enter the book author">
                 <label for="book_price_1">Price:</label>
                 <input type="text" id="book_price_1" name="book_price[]" required placeholder="Enter the price">
-                <label for="category">Category:</label>
-                <select id="category" name="category" required>
-                    <option value="">--Select Book Category--</option>
-                    <option value="Programming Books">Programming Book</option>
-                    <option value="Electrical books">Electrical books</option>
-                    <option value="Common to All">Common to All</option>
+                <label for="category_1">Category:</label>
+                <select id="category_1" name="category[]" required>
+                <option value="">--Select Book Category--</option>
+                <option value="Programming Books">Programming Book</option>
+                <option value="Electrical books">Electrical books</option>
+                <option value="Common to All">Common to All</option>
                 </select>
             </div>
         </div>
@@ -167,12 +167,12 @@
                 <input type="text" id="book_author_${bookCount}" name="book_author[]" required placeholder="Enter the book author">
                 <label for="book_price_${bookCount}">Price:</label>
                 <input type="text" id="book_price_${bookCount}" name="book_price[]" required placeholder="Enter the price">
-                <label for="category">Category:</label>
-                <select id="category" name="category" required>
-                    <option value="">--Select Book Category--</option>
-                    <option value="Programming Books">Programming Book</option>
-                    <option value="Electrical books">Electrical books</option>
-                    <option value="Common to All">Common to All</option>
+               <label for="category_${bookCount}">Category:</label>
+                <select id="category_${bookCount}" name="category[]" required>
+                <option value="">--Select Book Category--</option>
+                <option value="Programming Books">Programming Book</option>
+                <option value="Electrical books">Electrical books</option>
+                <option value="Common to All">Common to All</option>
                 </select>
             `;
             bookFields.appendChild(newBookContainer);
