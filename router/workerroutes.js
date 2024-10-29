@@ -67,7 +67,7 @@ wroute.get('/worker/:id', async (req, res) => {
       const currentUser = req.session.user
       console.log('current user==>')
       console.log(currentUser.email)
-      console.log('worker====>')
+      console.log('worker====>')     
       console.log(x.email)
         if (!x) {
         return res.status(404).send('Worker not found');
@@ -80,15 +80,17 @@ wroute.get('/worker/:id', async (req, res) => {
   });
 
 
- wroute.get('/workers/:serviceType', async (req, res) => {
-    const serviceType = req.params.serviceType;
-    try {
-        const workers = await workermodel.find({ service_type: serviceType });
-        res.render('painter', { workers,serviceType});
-    } catch (error) {
-        console.error('Error fetching workers:', error);
-        res.status(500).send('Error fetching workers');
-    }
+ wroute.get('/workers/:category', async (req, res) => {
+  const category = req.params.category;
+
+  try {
+    // Use the correct path to books.category for filtering
+    const sellers = await workermodel.find({ 'books.category': category });
+    res.render('painter', {sellers, category });
+  } catch (error) {
+    console.error('Error fetching workers:', error);
+    res.status(500).send('Error fetching workers');
+  }
 });
 
 
