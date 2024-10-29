@@ -9,15 +9,7 @@ broute.get('/who',async(req,res)=>{
     res.render("userorworker")
 })
 
-broute.get('/plumbers', async (req, res) => {
-    try {
-      const workers = await sellermodel.find({});
-      res.render('plumber', { workers });
-    } catch (err) {
-      console.error(err);
-      res.status(500).send('Error retrieving worker data');
-    }
-  });
+
   
 broute.get('/contactus',async(req,res)=>{//contact us
   res.render('contactus')
