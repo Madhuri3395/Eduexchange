@@ -1,4 +1,4 @@
-const workermodel = require('../model/workermodel');
+const sellermodel = require('../model/workermodel');
 const { v4: uuidv4 } = require('uuid');
 
 const storeWorkerData = async (req, res) => {
@@ -20,7 +20,7 @@ const storeWorkerData = async (req, res) => {
       };
     });
 
-    const newWorker = new workermodel({
+    const newWorker = new sellermodel({
       email: req.body.email,
       password: req.body.password,
       name: req.body.name,

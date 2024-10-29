@@ -10,6 +10,6 @@ let userSchema = mongoose.Schema({
     uniqueId: { type: String, unique: true }
 })
 
-let usermodel = mongoose.model('useregform', userSchema)
+let buyermodel = mongoose.model('useregform', userSchema)
 
-module.exports = usermodel;
+module.exports = buyermodel;

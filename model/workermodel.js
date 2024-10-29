@@ -22,6 +22,6 @@ let workerSchema = mongoose.Schema({
     role: { type: String, enum: ['client', 'worker'], default: 'worker' }
 });
 
-let workermodel = mongoose.model('workeregform', workerSchema);
+let sellermodel = mongoose.model('workeregform', workerSchema);
 
-module.exports = workermodel;
+module.exports = sellermodel;

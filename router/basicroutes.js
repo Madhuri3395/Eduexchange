@@ -1,6 +1,6 @@
 const express=require('express')
 const broute=express.Router();
-const workermodel=require('../model/workermodel')
+const sellermodel=require('../model/workermodel')
 broute.get('/',async(req,res)=>{
     res.render('homes')
 })
@@ -11,7 +11,7 @@ broute.get('/who',async(req,res)=>{
 
 broute.get('/plumbers', async (req, res) => {
     try {
-      const workers = await workermodel.find({});
+      const workers = await sellermodel.find({});
       res.render('plumber', { workers });
     } catch (err) {
       console.error(err);
@@ -27,9 +27,9 @@ broute.get('/profile', (req, res) => {
   if (req.session.user) {
     console.log(req.session.user)
     if (req.session.user.role === 'worker') {
-      res.redirect('/workerprofile');
+      res.redirect('/sellerprofile');
     } else {
-      res.redirect('/userprofile');
+      res.redirect('/buyerprofile');
     }
   } else {
     res.redirect('/who');
